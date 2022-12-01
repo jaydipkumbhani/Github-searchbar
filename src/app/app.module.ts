@@ -11,6 +11,7 @@ import { CustomStyleDirective } from './custom-directive/custom-style.directive'
 import { SearchResultComponent } from './components/search-result/search-result.component';
 import { SearchedUserListComponent } from './components/searched-user-list/searched-user-list.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { FiveStarReposComponents } from './components/five-star-repos/five-star-repos.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     SearchbarComponent,
     CustomStyleDirective,
     SearchResultComponent,
-    SearchedUserListComponent
+    SearchedUserListComponent,
+    FiveStarReposComponents
   ],
   imports: [
     BrowserModule,
