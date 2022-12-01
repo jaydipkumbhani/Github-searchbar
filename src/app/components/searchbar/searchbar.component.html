@@ -1,7 +1,7 @@
 <form [formGroup]="formGroup" (ngSubmit)="onSearch()" novalidate>
     <div class="search-wrapper">
         <input class="form-control rounded-0" type="text" placeholder="Search by username" formControlName="username">
-        <button class="btn btn-primary" [disabled]="isAPIRunning" type="submit" (onClick)="onSearch()">
+        <button class="btn btn-primary rounded-0" [disabled]="isAPIRunning" type="submit" (onClick)="onSearch()">
             <span *ngIf="!isAPIRunning">Search</span>
             <span *ngIf="isAPIRunning">Searching...</span>
         </button>

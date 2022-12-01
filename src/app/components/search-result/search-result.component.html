@@ -1,5 +1,5 @@
 <div class="container mt-3">
-    <div class="row">
+    <div class="row" *ngIf="selectedUser">
         <div class="col-md-5 text-center">
             <img class="rounded-circle" width="150px" height="150" src="{{selectedUser.avatar_url}}"
                 alt="searched-user-image">
@@ -23,15 +23,25 @@
                 </div>
             </div>
             <ul class="list-group mt-3">
-                <li class="list-group-item"><strong>Username: </strong>{{selectedUser.login}}</li>
+                <li class="list-group-item"><strong>Username: </strong>{{selectedUser.name}}</li>
                 <li class="list-group-item" [hidden]="!selectedUser.location"><strong>Location:
                     </strong>{{selectedUser.location}}</li>
                 <li class="list-group-item" [hidden]="!selectedUser.email"><strong>Email:
                     </strong>{{selectedUser.email}}</li>
                 <li class="list-group-item" [hidden]="!selectedUser.blog"><strong>Blog: </strong>{{selectedUser.blog}}
                 </li>
-                <li class="list-group-item"><strong>Username: </strong></li>
+                <li class="list-group-item"><strong>Member Since: </strong>{{userCreationDate}}</li>
             </ul>
         </div>
-
     </div>
+    <div *ngIf="noUserFound && !selectedUser">
+        <div class="alert alert-danger" role="alert">
+            No User Found!!
+        </div>
+    </div>
+    <div *ngIf="error">
+        <div class="alert alert-danger" role="alert">
+            Something went wrong!!
+        </div>
+    </div>
+</div>

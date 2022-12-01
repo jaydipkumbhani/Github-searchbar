@@ -16,8 +16,11 @@ export class SearchResultComponent implements OnChanges {
 
 
     ngOnChanges(changes: SimpleChanges) {
-        for (let propName in changes) {
+        console.log(changes);
+        console.log(changes['selectedUser']) // you can get selectedUser 
+        for (let propName in changes) { // you can get selectedUser to use for-in loop
             let change = changes[propName];
+            console.log(change);
             if (change && change.currentValue) {
                 this.updateSelectedUserInfo(change.currentValue);
             }
@@ -25,7 +28,9 @@ export class SearchResultComponent implements OnChanges {
     }
 
     updateSelectedUserInfo(userInfo: any) {
+        console.log(userInfo)
         this.selectedUser = userInfo;
+        // console.log(this.selectedUser.created_at)
         this.userCreationDate = new Date(this.selectedUser.created_at).toLocaleDateString();
         this.checkIfUserFoundOrNot();
     }
