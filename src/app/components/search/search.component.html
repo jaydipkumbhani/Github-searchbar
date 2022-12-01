@@ -1,0 +1,15 @@
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1 app-Custom-Style>Search profile by username</h1>
+        </div>
+        <hr>
+        <div class="col-4">
+            <app-searched-user-list></app-searched-user-list>
+        </div>
+        <div class="col-8 border-start border-secondary">
+            <app-searchbar (userInfo)="setUserInfo($event)"></app-searchbar>
+            <app-search-result [selectedUser]="selectedUser"></app-search-result>
+        </div>
+    </div>
+</div>
