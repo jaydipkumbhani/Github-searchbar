@@ -5,7 +5,8 @@
         </div>
         <hr>
         <div class="col-4">
-            <app-searched-user-list></app-searched-user-list>
+            <app-searched-user-list [users]="users" (userSelected)="setUserInfo($event)">
+            </app-searched-user-list>
         </div>
         <div class="col-8 border-start border-secondary">
             <app-searchbar (userInfo)="setUserInfo($event)"></app-searchbar>
