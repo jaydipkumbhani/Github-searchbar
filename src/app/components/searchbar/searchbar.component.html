@@ -2,8 +2,8 @@
     <button type="button" class="btn btn-link d-block pl-0 ml-auto clear_btn" (click)="resetEverything()">
         Clear Search</button>
     <div class="search-wrapper">
-        <input class="form-control rounded-0 focus" type="text" placeholder="Search by username"
-            formControlName="username">
+        <input #username class="form-control rounded-0 focus" type="text" placeholder="Search by username"
+            formControlName="username" autofocus>
         <button class="btn btn-primary rounded-0" [disabled]="isAPIRunning" type="submit" (onClick)="onSearch()">
             <span *ngIf="!isAPIRunning">Search</span>
             <span *ngIf="isAPIRunning">Searching...</span>

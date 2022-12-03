@@ -28,7 +28,7 @@ export class SearchbarComponent implements OnInit, AfterViewChecked {
     }
 
     ngAfterViewChecked() {
-        this.input.nativeElement.focus();
+        // this.input.nativeElement.focus();
     }
 
     onSearch() {
@@ -51,6 +51,7 @@ export class SearchbarComponent implements OnInit, AfterViewChecked {
                 this.handleError(err);
             })
         }
+        this.formGroup.reset();
     }
 
 
