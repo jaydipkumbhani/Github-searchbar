@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { AfterViewChecked, Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { forkJoin } from 'rxjs';
 import { GithubSearchService } from 'src/app/service/github-search.service';
@@ -9,8 +9,9 @@ import { GithubSearchService } from 'src/app/service/github-search.service';
     styleUrls: ['./searchbar.component.css']
 })
 
-export class SearchbarComponent implements OnInit {
+export class SearchbarComponent implements OnInit, AfterViewChecked {
 
+    @ViewChild("username", { static: true }) input: ElementRef;
     @Output() userInfo = new EventEmitter();
 
     formGroup = this.fb.group({
@@ -24,6 +25,10 @@ export class SearchbarComponent implements OnInit {
 
     ngOnInit() {
 
+    }
+
+    ngAfterViewChecked() {
+        this.input.nativeElement.focus();
     }
 
     onSearch() {
@@ -63,4 +68,9 @@ export class SearchbarComponent implements OnInit {
         this.userInfo.emit({ error: err })
     }
 
+    resetEverything() {
+        this.formGroup.reset();
+        this.isAPIRunning = false;
+        this.userInfo.emit(null);
+    }
 }

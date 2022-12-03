@@ -1,13 +1,6 @@
 .list-group.list-style {
     max-height: 60vh;
     overflow-y: auto;
-    min-height: 200px;
-}
-
-@media (max-width: 767px) {
-    .list-group-item {
-        text-align: left;
-    }
 }
 
 span.sticky {

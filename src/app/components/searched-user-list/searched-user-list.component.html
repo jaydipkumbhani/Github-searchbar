@@ -1,5 +1,5 @@
 <div class="list-group list-style" *ngIf="users.length;else showEmptyMessage">
-    <span class="list-group-item list-group-item-action sticky active">User List</span>
+    <span class="list-group-item list-group-item-action sticky active fw-bold text-center">User List</span>
     <!-- Sometimes, you do not want a link to navigate to another page or reload a page. Using javascript:, you can run code that does not change the current page.
     This, used with void(0) means, do nothing - don't reload, don't navigate, do not run any code. -->
     <a href="javascript:void(0)" *ngFor="let user of users" (click)="selectUser(user)"
