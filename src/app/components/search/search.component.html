@@ -1,18 +1,29 @@
 <div class="jumbotron">
-    <div class="row">
-        <div class="col-12 text-center">
-            <h1 app-Custom-Style>Search profile by username</h1>
-        </div>
-        <hr>
-        <div class="col-4">
-            <app-searched-user-list [users]="users" (userSelected)="setUserInfo($event)">
-            </app-searched-user-list>
-        </div>
-        <div class="col-8 border-start border-secondary ">
-            <app-searchbar (userInfo)="setUserInfo($event)"></app-searchbar>
-            <app-search-result [selectedUser]="selectedUser"></app-search-result>
-            <github-five-star-repos [repos]="repos"></github-five-star-repos>
-        </div>
-
+  <div class="row">
+    <div class="col-12 text-center">
+      <h1 [appHighlight]="'#ff6347'">Search profile by username</h1>
     </div>
+    <hr />
+    <div class="col-4">
+      <app-searched-user-list
+        [users]="users"
+        (userSelected)="setUserInfo($event)"
+      >
+      </app-searched-user-list>
+    </div>
+    <div class="col-8 border-start border-secondary">
+      <app-searchbar
+        (userInfo)="setUserInfo($event)"
+        (userRepos)="setUserRepos($event)"
+      ></app-searchbar>
+      <app-search-result [selectedUser]="selectedUser"></app-search-result>
+      <github-five-star-repos [repos]="repos"></github-five-star-repos>
+    </div>
+  </div>
+</div>
+<div class="border rounded" *ngIf="(contributions | keyvalue)?.length">
+  <h3 class="m-4">Contribution Calendar</h3>
+  <app-contribution-calendar
+    [contributionData]="contributions"
+  ></app-contribution-calendar>
 </div>

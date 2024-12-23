@@ -1,0 +1,32 @@
+<div
+  class="calendar-wrapper"
+  *ngIf="contributionData | keyvalue as contributions"
+>
+  <div class="months-row">
+    <span *ngFor="let month of months" class="month-label">{{ month }}</span>
+  </div>
+  <div class="weekdays-col">
+    <span *ngFor="let day of weekdays" class="weekday-label">{{ day }}</span>
+  </div>
+  <div class="contribution-grid">
+    <div *ngFor="let week of calendar" class="week">
+      <div
+        *ngFor="let day of week"
+        class="day"
+        [ngStyle]="{ 'background-color': day.color }"
+        [title]="getTooltipText(day)"
+      ></div>
+    </div>
+  </div>
+  <div class="legend">
+    <span>Less</span>
+    <div class="legend-colors">
+      <div
+        *ngFor="let level of contributionLevels"
+        class="legend-item"
+        [ngStyle]="{ 'background-color': getColorForCount(level) }"
+      ></div>
+    </div>
+    <span>More</span>
+  </div>
+</div>

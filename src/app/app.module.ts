@@ -12,6 +12,7 @@ import { SearchResultComponent } from './components/search-result/search-result.
 import { SearchedUserListComponent } from './components/searched-user-list/searched-user-list.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { FiveStarReposComponents } from './components/five-star-repos/five-star-repos.component';
+import { ContributionCalendarComponent } from './components/contribution-calendar/contribution-calendar.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { FiveStarReposComponents } from './components/five-star-repos/five-star-
     CustomStyleDirective,
     SearchResultComponent,
     SearchedUserListComponent,
-    FiveStarReposComponents
+    FiveStarReposComponents,
+    ContributionCalendarComponent
   ],
   imports: [
     BrowserModule,
